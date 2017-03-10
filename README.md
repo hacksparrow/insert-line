@@ -10,18 +10,58 @@ Node module for inserting lines to an existing file.
 const insertLine = require('insert-line')
 ```
 
+## Examples
+
+Appending a line asynchronously:
+
+```js
+insertLine('./myfile.txt').append('Rocks').then(function(err) {
+  var content = fs.readFileSync(destListPath, 'utf8')
+  console.log(content)
+})
+```
+
+Appending a line synchronously:
+
+```js
+insertLine('./myfile.txt').appendSync('Rocks')
+var content = fs.readFileSync(destListPath, 'utf8')
+console.log(content)
+```
+
+Inserting a line at line number 3 asynchronously:
+
+```js
+insertLine('./myfile.txt').content('This is a test').at(3).then(function(err) {
+  var content = fs.readFileSync(destListPath, 'utf8')
+  console.log(content)
+})
+```
+
+Inserting a line at line number 3 synchronously:
+
+```js
+insertLine('./myfile.txt').contentSync('This is a test').at(3)
+var content = fs.readFileSync(destListPath, 'utf8')
+console.log(content)
+```
+
+For more examples, refer to [/test/test.js](/test/test.js).
+
 ### API
 
-`insertLine` accepts a file path, after which you can call the chained methods: `content()` to specify the content and
-`at()` to specify the line number. Finally, you must call `then()` and pass your callback function.
+For async insertions, `insertLine` accepts a file path, after which you can call the chained methods:`content()` to 
+specify the content and `at()` to specify the line number. Finally, you must call `then()` and pass your callback function.
 
 If you need to prepend a line to a file, you can use the shortcut method `prepend()`, instead of calling `content()` and `at()`.
 If you need to append a line to a file, you can use the shortcut method `append()`, instead of calling `content()` and `at()`.
 
-`content()`, `prepend()`, and `append()` can be configured to specify the tab character, tab count, EOL character, and the
+`content()`, `prepend()`, and `append()` can be configured to specify the pad character, pad count, EOL character, and the
 option to overwrite the existing line.
 
-`contentSync()`, `prependSync()`, and `appendSync()` and the synchronous version of `content()`, `prepend()`, and `append()` respectively.
+`contentSync()`, `prependSync()`, and `appendSync()` are the synchronous version of `content()`, `prepend()`, and 
+`append()`, respectively. These methods don't need to be chained to `then()`, their insertion operation is executed on
+invoking `at()`.
 
 **`insertLine(<filePath>)`**
 
@@ -74,43 +114,6 @@ This method is only required while calling the async methods `content()`, `prepe
 
 `callback`: callback function which will be executed after the line has been successfully inserted, or an error was encountered.
 
-## Examples
-
-Appending a line asynchronously:
-
-```js
-insertLine('./myfile.txt').append('Rocks').then(function(err) {
-  var content = fs.readFileSync(destListPath, 'utf8')
-  console.log(content)
-})
-```
-
-Appending a line synchronously:
-
-```js
-insertLine('./myfile.txt').appendSync('Rocks')
-var content = fs.readFileSync(destListPath, 'utf8')
-console.log(content)
-```
-
-Inserting a line at line number 3 asynchronously:
-
-```js
-insertLine('./myfile.txt').content('This is a test').at(3).then(function(err) {
-  var content = fs.readFileSync(destListPath, 'utf8')
-  console.log(content)
-})
-```
-
-Inserting a line at line number 3 synchronously:
-
-```js
-insertLine('./myfile.txt').contentSync('This is a test').at(3)
-var content = fs.readFileSync(destListPath, 'utf8')
-console.log(content)
-```
-
-For more examples, refer to [/test/test.js](/test/test.js).
 
 ## LICENSE
 
