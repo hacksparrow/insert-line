@@ -105,7 +105,7 @@ insertLine('./myfile.txt').content('This is a test').at(3).then(function(err) {
 Inserting a line at line number 3 synchronously:
 
 ```js
-insertLine('./myfile.txt').content('This is a test').atSync(3)
+insertLine('./myfile.txt').contentSync('This is a test').at(3)
 var content = fs.readFileSync(destListPath, 'utf8')
 console.log(content)
 ```
