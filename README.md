@@ -58,7 +58,25 @@ Refer to the documentation of `.content()` for details about `lineContent` and `
 
 ## Examples
 
-Refer to [/test/test.js](/test/test.js).
+Appending a line:
+
+```js
+insertLine('./myfile.txt').append('Rocks').then(function(err) {
+  var content = fs.readFileSync(destListPath, 'utf8')
+  console.log(content)
+})
+```
+
+Inserting a line at line number 3:
+
+```js
+insertLine('./myfile.txt').content('This is a test').at(3).then(function(err) {
+  var content = fs.readFileSync(destListPath, 'utf8')
+  console.log(content)
+})
+```
+
+For more examples, refer to [/test/test.js](/test/test.js).
 
 ## LICENSE
 
