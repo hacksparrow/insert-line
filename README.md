@@ -56,6 +56,10 @@ Refer to the documentation of `.content()` for details about `lineContent` and `
 
 `callback`: callback function which will be executed after the line has been successfully inserted, or an error was encountered.
 
+## Examples
+
+Refer to [/test/test.js](/test/test.js).
+
 ## LICENSE
 
 [MIT](LICENSE)
