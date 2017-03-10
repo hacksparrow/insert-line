@@ -35,12 +35,12 @@ current line, specify `overwrite: true`, in the `options` object passed to `cont
 `lineContent`: the content to be inserted at the line. If not specified, it defaults to an empty string.
 `options`: the options object supports the following options.
 
-  i. `prepend`: whether to prepend or not, defaults to `false`
-  ii. `append`: whether to append or not, defaults to `false`
-  iii. `padding`: padding amount, defaults to `0`
-  iv. `padWith`: character to be used for padding, defaults to ' ',
-  v. `eol`: end of line character, defaults to `os.EOL`
-  vi. `overwrite`: whether to overwrite the existing line, defaults to `false`
+  . `prepend`: whether to prepend or not, defaults to `false`
+  . `append`: whether to append or not, defaults to `false`
+  . `padding`: padding amount, defaults to `0`
+  . `padWith`: character to be used for padding, defaults to ' ',
+  . `eol`: end of line character, defaults to `os.EOL`
+  . `overwrite`: whether to overwrite the existing line, defaults to `false`
 
 **`.prepend([lineContent], [options])`**
 
